@@ -1,4 +1,5 @@
 plugins {
+    id 'maven-publish'
     id 'org.jetbrains.kotlin.jvm' version '1.4.21'
     id 'com.github.johnrengelman.shadow' version '5.2.0'
 }
@@ -14,4 +15,12 @@ repositories {
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib"
     compileOnly 'org.spigotmc:spigot-api:1.16.5-R0.1-SNAPSHOT'
+}
+
+publishing {
+    publications {
+        teller (MavenPublication) {
+            from components.java
+        }
+    }
 }
