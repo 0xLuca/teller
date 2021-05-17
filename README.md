@@ -1,5 +1,7 @@
 # teller
 
+Spigot-Plugin message storing system written in Kotlin
+
 ## Usage
 
 Create an instance of `PropertiesMessageProvider` using the Constructor with an instance of Properties or the `fromPlugin` factory method which takes an instance of JavaPlugin and an resourcePath String, where you pass the path to the message properties resource.
