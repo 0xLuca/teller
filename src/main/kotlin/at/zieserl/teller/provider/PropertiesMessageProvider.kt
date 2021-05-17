@@ -7,6 +7,8 @@ import java.nio.file.Paths
 import java.util.*
 
 class PropertiesMessageProvider(private val properties: Properties) : MessageProvider {
+    override fun provide(key: String): Message = Message(this, properties.getProperty(key, "Invalid message key $key!"))
+
     companion object {
         fun fromPlugin(plugin: JavaPlugin, resourcePath: String) : PropertiesMessageProvider {
             plugin.saveResource(resourcePath, false)
@@ -21,6 +23,4 @@ class PropertiesMessageProvider(private val properties: Properties) : MessagePro
             return properties;
         }
     }
-
-    override fun provide(key: String): Message = Message(this, properties.getProperty(key, "Invalid message key $key!"))
 }
