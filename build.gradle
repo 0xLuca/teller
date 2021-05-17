@@ -24,3 +24,7 @@ publishing {
         }
     }
 }
+
+configure(JavaCompile) {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+}
