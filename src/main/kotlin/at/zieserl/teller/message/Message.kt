@@ -4,6 +4,9 @@ import at.zieserl.teller.message.delay.MessageDelayer
 import at.zieserl.teller.provider.MessageProvider
 import org.bukkit.command.CommandSender
 
+/**
+ * This class holds the text of a message and can be sent to receivers.
+ */
 class Message(private val provider: MessageProvider, private var message: String, private val messageDelayer: MessageDelayer) : Prefixable<Message>, Appendable<Message>, DelayedSendable {
     override fun prefixed(): Message {
         return appendTo(provider.provide("prefix"))

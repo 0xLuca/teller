@@ -3,6 +3,10 @@ package at.zieserl.teller.message.delay
 import at.zieserl.teller.message.Message
 import org.bukkit.command.CommandSender
 
+/**
+ * This class is used to check if an message is ready to be sent again
+ * after a certain amount of time (delay)
+ */
 class MessageDelayer : IMessageDelayer {
     private val delayMap: HashMap<Pair<CommandSender, Message>, Long> = HashMap()
 

@@ -1,5 +1,8 @@
 package at.zieserl.teller.message.delay
 
+/**
+ * This class holds constant default delay values.
+ */
 class DefaultDelays {
     companion object {
         const val FIVE_SECONDS: Long = 5000
