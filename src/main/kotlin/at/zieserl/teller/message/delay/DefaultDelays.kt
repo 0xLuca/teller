@@ -1,6 +1,6 @@
 package at.zieserl.teller.message.delay
 
-interface DefaultDelays {
+class DefaultDelays {
     companion object {
         const val FIVE_SECONDS: Long = 5000
         const val THREE_SECONDS: Long = 3000
