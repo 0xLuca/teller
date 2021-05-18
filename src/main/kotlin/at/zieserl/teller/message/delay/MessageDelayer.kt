@@ -6,10 +6,10 @@ import org.bukkit.command.CommandSender
 class MessageDelayer : IMessageDelayer {
     private val delayMap: HashMap<Pair<CommandSender, Message>, Long> = HashMap()
 
-    override fun isDelayPassed(commandSender: CommandSender, message: Message, delayMillis: Long): Boolean
-        = delayMap.getOrDefault(Pair(commandSender, message), 0) < System.currentTimeMillis() + delayMillis
+    @Synchronized override fun isDelayPassed(commandSender: CommandSender, message: Message, delayMillis: Long): Boolean
+        = delayMap.getOrDefault(Pair(commandSender, message), 0) + delayMillis < System.currentTimeMillis()
 
-    override fun updateLastMessage(commandSender: CommandSender, message: Message) {
+    @Synchronized override fun updateLastMessage(commandSender: CommandSender, message: Message) {
         delayMap[Pair(commandSender, message)] = System.currentTimeMillis()
     }
 }
