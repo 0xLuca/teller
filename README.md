@@ -1,6 +1,6 @@
 # teller
 
-Spigot-Plugin message storing system written in Kotlin
+Spigot-Plugin message providing system written in Kotlin
 
 ## Usage
 
