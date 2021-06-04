@@ -5,6 +5,9 @@ import at.zieserl.teller.message.delay.MessageDelayer
 import org.bukkit.ChatColor
 import org.bukkit.entity.Player
 import org.bukkit.plugin.java.JavaPlugin
+import java.io.FileInputStream
+import java.io.InputStreamReader
+import java.nio.charset.Charset
 import java.nio.file.Files
 import java.nio.file.Paths
 import java.util.*
@@ -35,7 +38,7 @@ class PropertiesMessageProvider(private val properties: Properties, private val 
         private fun loadMessageProperties(plugin: JavaPlugin, resourcePath: String) : Properties {
             val path = Paths.get(plugin.dataFolder.toString(), resourcePath)
             val properties = Properties()
-            properties.load(Files.newInputStream(path))
+            properties.load(InputStreamReader(FileInputStream(path.toFile()), Charset.forName("UTF-8")))
             return properties
         }
     }
